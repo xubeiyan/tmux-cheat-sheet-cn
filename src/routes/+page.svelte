@@ -9,7 +9,9 @@
 		searchText = '';
 	};
 
-	import { commandType } from '$lib';
+	import { sessions } from '$lib/sessionsData';
+	import Sessions from '../components/sessions.svelte';
+	$: filteredSesssions = sessions;
 </script>
 
 <svelte:head>
@@ -31,34 +33,6 @@
 		{/if}
 	</label>
 	<div class="mt-2 w-full md:w-[40em]">
-		{#each commandType as type}
-			<h2 class="bg-sky-100 w-full rounded-sm px-2 py-1 text-center">{type.title}</h2>
-			<div class="flex flex-col gap-1 my-2 md:w-1/2">
-				{#each type.content as content}
-					{#if content.type == 'tmuxCommand'}
-						<span class="bg-slate-700 text-white rounded-md px-3 py-1 font-mono"
-							>{content.text}</span
-						>
-					{:else if content.type == 'tmuxInnerCommand'}
-						<span class="bg-teal-800 text-white rounded-md px-3 py-1 font-mono">{content.text}</span
-						>
-					{:else if content.type == 'tmuxKey'}
-						<div>
-							{#each content.key as key}
-								{#if key == '+' || key == ' '}
-									<span class="px-1">{key}</span>
-								{:else}
-									<kbd class="bg-gray-700 rounded-md px-2 py-1 text-white shadow-md shadow-gray-500"
-										>{key}</kbd
-									>
-								{/if}
-							{/each}
-						</div>
-					{:else if content.type == 'comment'}
-						<span class="mb-4">{content.text}</span>
-					{/if}
-				{/each}
-			</div>
-		{/each}
+		<Sessions sessions={filteredSesssions} />
 	</div>
 </div>
