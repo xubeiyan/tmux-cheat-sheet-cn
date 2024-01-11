@@ -7,7 +7,7 @@
 <svg
 	{width}
 	{height}
-	class="fill-slate-300 dark:fill-zinc-200 hover:fill-slate-200"
+	class="fill-slate-500 dark:fill-zinc-200 hover:fill-slate-700"
 	viewBox="0 0 24 24"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"

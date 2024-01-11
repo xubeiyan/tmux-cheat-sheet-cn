@@ -20,7 +20,11 @@
 </script>
 
 <label class="relative">
-	<input class="peer w-full text-white px-3 py-1 rounded-md font-mono {bgColor}" {value} readonly />
+	<input
+		class="peer w-full text-white px-3 py-1 rounded-md font-mono focus:bg-white focus:text-black {bgColor}"
+		{value}
+		readonly
+	/>
 	<button
 		class="{opacity} peer-focus:opacity-100 absolute right-1 top-[50%] translate-y-[-50%] cursor-pointer"
 		on:click={copyCommand}

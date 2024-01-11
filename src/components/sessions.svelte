@@ -1,31 +1,8 @@
 <script>
-	import CommandInput from './commandInput.svelte';
+	import FuncGroupList from './funcGroupList.svelte';
 
 	export let sessions = [];
 </script>
 
 <h1 class="text-xl bg-blue-100 rounded-sm py-2 text-center mb-2">Sessions(会话相关)</h1>
-<ul class="md:columns-2 gap-x-8">
-	{#each sessions as func}
-		<li class="flex flex-col gap-1 break-inside-avoid">
-			{#each func.command as command}
-				{#if command.type == 'tmuxCommand' || command.type == 'tmuxInnerCommand'}
-					<CommandInput type={command.type} value={command.text} />
-				{:else if command.type == 'tmuxKey'}
-					<div class="flex gap-1">
-						{#each command.key as key}
-							{#if key == '+' || key == ' '}
-								<span class="px-1">{key}</span>
-							{:else}
-								<kbd class="px-2 bg-stone-800 text-white rounded-md shadow-sm shadow-slate-900"
-									>{key}</kbd
-								>
-							{/if}
-						{/each}
-					</div>
-				{/if}
-			{/each}
-			<span class="mb-4">{func.comment}</span>
-		</li>
-	{/each}
-</ul>
+<FuncGroupList funcGroup={sessions} />

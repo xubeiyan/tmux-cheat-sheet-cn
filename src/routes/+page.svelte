@@ -11,7 +11,11 @@
 
 	import { sessions } from '$lib/sessionsData';
 	import Sessions from '../components/sessions.svelte';
-	$: filteredSesssions = sessions.filter(one => one.keywords.includes(searchText));
+	$: filteredSesssions = sessions.filter((one) => one.keywords.includes(searchText));
+
+	import { windowData } from '$lib/windowData';
+	import Windows from '../components/windows.svelte';
+	$: filteredWindows = windowData.filter((one) => one.keywords.includes(searchText));
 </script>
 
 <svelte:head>
@@ -32,7 +36,8 @@
 			</button>
 		{/if}
 	</label>
-	<div class="mt-2 w-full md:w-[45em]">
+	<div class="mt-2 w-full md:w-[45em] lg:w-[75em]">
 		<Sessions sessions={filteredSesssions} />
+		<Windows windowData={filteredWindows} />
 	</div>
 </div>
