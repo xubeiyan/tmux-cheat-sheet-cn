@@ -11,7 +11,7 @@
 
 	import { sessions } from '$lib/sessionsData';
 	import Sessions from '../components/sessions.svelte';
-	$: filteredSesssions = sessions;
+	$: filteredSesssions = sessions.filter(one => one.keywords.includes(searchText));
 </script>
 
 <svelte:head>
@@ -32,7 +32,7 @@
 			</button>
 		{/if}
 	</label>
-	<div class="mt-2 w-full md:w-[40em]">
+	<div class="mt-2 w-full md:w-[45em]">
 		<Sessions sessions={filteredSesssions} />
 	</div>
 </div>

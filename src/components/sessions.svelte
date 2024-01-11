@@ -1,16 +1,16 @@
 <script>
+	import CommandInput from './commandInput.svelte';
+
 	export let sessions = [];
 </script>
 
-<h1 class="text-xl bg-blue-100 rounded-sm py-2 text-center">Sessions(会话相关)</h1>
-<div class="grid grid-flow-row md:grid-cols-2 gap-x-6 my-2">
+<h1 class="text-xl bg-blue-100 rounded-sm py-2 text-center mb-2">Sessions(会话相关)</h1>
+<ul class="md:columns-2 gap-x-8">
 	{#each sessions as func}
-		<div class="flex flex-col gap-1">
+		<li class="flex flex-col gap-1 break-inside-avoid">
 			{#each func.command as command}
-				{#if command.type == 'tmuxCommand'}
-					<span class="bg-slate-800 text-white px-3 py-1 rounded-md font-mono">{command.text}</span>
-				{:else if command.type == 'tmuxInnerCommand'}
-					<span class="bg-teal-800 text-white px-3 py-1 rounded-md font-mono">{command.text}</span>
+				{#if command.type == 'tmuxCommand' || command.type == 'tmuxInnerCommand'}
+					<CommandInput type={command.type} value={command.text} />
 				{:else if command.type == 'tmuxKey'}
 					<div class="flex gap-1">
 						{#each command.key as key}
@@ -26,6 +26,6 @@
 				{/if}
 			{/each}
 			<span class="mb-4">{func.comment}</span>
-		</div>
+		</li>
 	{/each}
-</div>
+</ul>

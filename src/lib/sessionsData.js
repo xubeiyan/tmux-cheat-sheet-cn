@@ -39,6 +39,20 @@ const sessions = [
 		command: [
 			{
 				type: 'tmuxCommand',
+				text: '$ tmux kill-ses -t mysession'
+			},
+			{
+				type: 'tmuxCommand',
+				text: '$ tmux kill-session -t mysession'
+			}
+		],
+		comment: '以mysession为名称开启新的Session',
+		keywords: 'tmux new new-session -s 以mysession为名称开启新的Session'
+	},
+	{
+		command: [
+			{
+				type: 'tmuxCommand',
 				text: '$ tmux ls'
 			},
 			{
