@@ -13,9 +13,10 @@
 					<div class="flex gap-1">
 						{#each command.key as key}
 							{#if key == '+' || key == ' ' || key == '...'}
-								<span class="px-1">{key}</span>
+								<span class="px-1 dark:text-white">{key}</span>
 							{:else}
-								<kbd class="px-2 bg-stone-800 text-white rounded-md shadow-sm shadow-slate-900"
+								<kbd
+									class="px-2 bg-stone-800 dark:bg-stone-700 text-white rounded-md shadow-sm shadow-slate-900"
 									>{key}</kbd
 								>
 							{/if}
@@ -23,7 +24,7 @@
 					</div>
 				{/if}
 			{/each}
-			<span class="mb-4">{func.comment}</span>
+			<span class="mb-4 dark:text-slate-50">{func.comment}</span>
 		</li>
 	{/each}
 </ul>

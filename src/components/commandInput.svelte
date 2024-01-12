@@ -4,7 +4,7 @@
 	export let value = '';
 	export let type = 'tmuxCommand';
 	// 不同命令类型不同颜色
-	$: bgColor = type == 'tmuxCommand' ? 'bg-slate-800' : 'bg-teal-800';
+	$: bgColor = type == 'tmuxCommand' ? 'bg-slate-800 dark:bg-slate-700' : 'bg-teal-800';
 	// 是否已复制
 	let copied = false;
 	$: opacity = copied ? 'opacity-100' : 'opacity-0';
@@ -21,7 +21,7 @@
 
 <label class="relative">
 	<input
-		class="peer w-full text-white px-3 py-1 rounded-md font-mono focus:bg-white focus:text-black {bgColor}"
+		class="peer w-full text-white px-3 py-1 rounded-md font-mono focus:bg-white focus:text-black dark:focus:bg-white {bgColor}"
 		{value}
 		readonly
 	/>
