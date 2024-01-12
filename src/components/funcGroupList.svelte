@@ -12,7 +12,7 @@
 				{:else if command.type == 'tmuxKey'}
 					<div class="flex gap-1">
 						{#each command.key as key}
-							{#if key == '+' || key == ' '}
+							{#if key == '+' || key == ' ' || key == '...'}
 								<span class="px-1">{key}</span>
 							{:else}
 								<kbd class="px-2 bg-stone-800 text-white rounded-md shadow-sm shadow-slate-900"

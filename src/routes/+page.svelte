@@ -11,11 +11,22 @@
 
 	import { sessions } from '$lib/sessionsData';
 	import Sessions from '../components/sessions.svelte';
-	$: filteredSesssions = sessions.filter((one) => one.keywords.includes(searchText));
+	$: filteredSesssions = sessions.filter((one) =>
+		one.keywords.toLowerCase().includes(searchText.toLowerCase())
+	);
 
 	import { windowData } from '$lib/windowData';
 	import Windows from '../components/windows.svelte';
-	$: filteredWindows = windowData.filter((one) => one.keywords.includes(searchText));
+	$: filteredWindows = windowData.filter((one) =>
+		one.keywords.toLowerCase().includes(searchText.toLowerCase())
+	);
+
+	import { panesData } from '$lib/panesData';
+	import Panes from '../components/panes.svelte';
+	import TitleArea from '../components/titleArea.svelte';
+	$: filteredPanes = panesData.filter((one) =>
+		one.keywords.toLowerCase().includes(searchText.toLowerCase())
+	);
 </script>
 
 <svelte:head>
@@ -23,7 +34,7 @@
 </svelte:head>
 
 <div class="flex flex-col items-center w-full px-2 md:px-0 md:w-[40em] xl:w-[70em] mx-auto">
-	<h1 class="text-3xl py-8 dark:text-white">Tmux 速查表 & 参考</h1>
+	<TitleArea />
 	<label class="w-full group border border-slate-500 rounded-full p-2 flex">
 		<Search size={1.5} />
 		<input
@@ -39,5 +50,6 @@
 	<div class="mt-2 w-full md:w-[45em] xl:w-[75em]">
 		<Sessions sessions={filteredSesssions} />
 		<Windows windowData={filteredWindows} />
+		<Panes panes={filteredPanes} />
 	</div>
 </div>
