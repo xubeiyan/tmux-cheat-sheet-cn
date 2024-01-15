@@ -243,16 +243,6 @@ const copyModeData = [
 		command: [
 			{
 				type: 'tmuxInnerCommand',
-				text: ': capture-pane'
-			}
-		],
-		comment: '复制当前Pane的所有内容至buffer',
-		keywords: 'capture-pane 复制当前Pane的所有内容至buffer'
-	},
-	{
-		command: [
-			{
-				type: 'tmuxInnerCommand',
 				text: ': list-buffers'
 			}
 		],
