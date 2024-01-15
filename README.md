@@ -2,6 +2,10 @@
 
 > 对[英文文档](https://tmuxcheatsheet.com/)的翻译
 
+### 外部链接
+
+可以访问[这里](http://chenhai.net/tools/tmux-cheat-sheet-cn/)查看已部署的版本
+
 ### 使用技术
 
 框架使用[Svelte](https://svelte.dev/), CSS样式使用[TailwindCSS](https://tailwindcss.com/)
