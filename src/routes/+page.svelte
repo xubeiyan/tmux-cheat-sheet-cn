@@ -9,6 +9,9 @@
 		searchText = '';
 	};
 
+	// 标题部分
+	import TitleArea from '../components/titleArea.svelte';
+
 	import { sessions } from '$lib/sessionsData';
 	import Sessions from '../components/sessions.svelte';
 	$: filteredSesssions = sessions.filter((one) =>
@@ -23,8 +26,25 @@
 
 	import { panesData } from '$lib/panesData';
 	import Panes from '../components/panes.svelte';
-	import TitleArea from '../components/titleArea.svelte';
 	$: filteredPanes = panesData.filter((one) =>
+		one.keywords.toLowerCase().includes(searchText.toLowerCase())
+	);
+
+	import { copyModeData } from '$lib/copyModeData';
+	import CopyMode from '../components/copyMode.svelte';
+	$: filteredCopyMode = copyModeData.filter((one) =>
+		one.keywords.toLowerCase().includes(searchText.toLowerCase())
+	);
+
+	import { miscData } from '$lib/miscData';
+	import Misc from '../components/misc.svelte';
+	$: filteredHelp = helpData.filter((one) =>
+		one.keywords.toLowerCase().includes(searchText.toLowerCase())
+	);
+
+	import { helpData } from '$lib/helpData';
+	import Help from '../components/help.svelte';
+	$: filteredMisc = miscData.filter((one) =>
 		one.keywords.toLowerCase().includes(searchText.toLowerCase())
 	);
 </script>
@@ -51,5 +71,8 @@
 		<Sessions sessions={filteredSesssions} />
 		<Windows windowData={filteredWindows} />
 		<Panes panes={filteredPanes} />
+		<CopyMode copyMode={filteredCopyMode} />
+		<Misc misc={filteredMisc} />
+		<Help help={filteredHelp} />
 	</div>
 </div>
