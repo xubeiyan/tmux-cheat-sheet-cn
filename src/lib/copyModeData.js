@@ -213,6 +213,17 @@ const copyModeData = [
 		command: [
 			{
 				type: 'tmuxKey',
+				key: ['Ctrl', '+', 'v']
+			}
+
+		],
+		comment: '切换矩形复制模式(rectangle toggle)和普通复制模式',
+		keywords: 'rectangle toggle 切换矩形复制模式和普通复制模式'
+	},
+	{
+		command: [
+			{
+				type: 'tmuxKey',
 				key: ['Ctrl', '+', 'b', ' ', ']']
 			}
 		],
